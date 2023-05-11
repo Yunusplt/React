@@ -1,0 +1,16 @@
+@import "../../scss/variable";
+
+//todo sadece variable tarzi sayfalar. $ile olusturulan degiskenler. nereden cagiralacaksa orayaa import edilmeli....
+
+header{
+    padding: 3rem;
+    background-color: $lightGreen;
+
+    h1{
+        color: darkblue;
+        text-align: center;
+    }
+}
+
+
+
