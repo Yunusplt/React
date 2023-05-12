@@ -1,0 +1,21 @@
+@import "./scss/mixins";
+@import "./scss/reset";
+@import "./scss/variable";
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');   //! for header
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');             //! for artist name
+
+
+body{
+    background-color: $bodyBgColor;
+}
+
+h2{
+    font-family: 'Playfair Display', serif;
+}
+
+a{
+    font-family: 'Playfair Display', serif;
+}
+
+
