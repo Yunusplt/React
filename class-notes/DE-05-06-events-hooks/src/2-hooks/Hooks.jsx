@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 
 const Hooks = () => {
+  //! useState Hook is written on top.
     const [sayac, setSayac]=useState(0)
-
+    
     const [kisi, setKisi] = useState({
         isim : "Özlem",
         email:"ozlem@hotmail.com",

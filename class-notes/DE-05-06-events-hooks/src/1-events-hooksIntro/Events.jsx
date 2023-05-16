@@ -1,5 +1,3 @@
-
-
 import React from 'react'
 //! react alanında parametreli fonksiyon çağıracaksak, fonksiyonun adının önüne ()=> işaretini koymalıyız, yoksa fonksiyonu event ı beklemeden çalıştırıyor
 //todo parametreli foksiyonlar hemen calisir. digerlerinde fonksiyon oldugu hemen anlasilmadigi icin calismaz. arttir butonundaki gibi... PARAMETRE VAR ISE HEMEN CALISIR!!!!!!!!!!!#########################
