@@ -19,7 +19,6 @@ import resim from '../img/images5.jpg'
 //!External CSS
 import "./Msg.css"
 
-
 const Msg = () => {
   //! Internal CSS
   const styleA = {
@@ -51,5 +50,4 @@ const Msg = () => {
     
   );
 };
-
 export default Msg;
