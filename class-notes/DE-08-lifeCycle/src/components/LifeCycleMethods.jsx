@@ -5,7 +5,7 @@
 //?==================================================================
 
 //* Lifecycle yöntemleri, DOM'daki süreleri boyunca componentler üzerinde çalışmak için kullanılan, React'te yerleşik özel yöntemlerdir.
-//* Örneğin, bileşen bağlandığında, oluşturduğunda, güncellendiğinde veya bağlantısını kestiğinde.
+//* Örneğin, bileşen bağlandığında, oluştu rduğunda, güncellendiğinde veya bağlantısını kestiğinde.
 
 //* Component in oluşturulması (constructor)
 //* DOM ağacına ekleme. (componentDidMount)
