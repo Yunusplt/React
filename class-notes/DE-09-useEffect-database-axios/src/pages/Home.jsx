@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AddBilgi from "../components/AddBilgi";
 import BilgiList from "../components/BilgiList";
+
+ 
 const Home = () => {
   const [bilgiler, setBilgiler] = useState([]);
 
-  const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
   
   //!GET (Read)
 
@@ -35,17 +37,24 @@ const Home = () => {
   
   //!POST (create) database e veri gönderme
 
-  const postBilgi = async()=>{
-    await axios.post(url,{title:"hayat bilgisi", description:"naber"})
+  const postBilgi = async(yeniVeri)=>{
+    await axios.post(url,yeniVeri)
     getBilgiler()
   }
+
+
+  //todo homedan delete islemini yapacak olsak asagidaki gibi olurdu ama bu sefer delete islemi digerlerinden farkli olarak kendi sayfasinda yapilacak. 
+  // const deleteBilgi=async(id)=>{
+  //   await axios.delete(url/id)
+  //   getBilgiler()
+  // }
  
 
  
   return (
     <>
     <AddBilgi postBilgi = {postBilgi}/>
-    <BilgiList bilgiler={bilgiler}/>
+    <BilgiList bilgiler={bilgiler} getBilgiler={getBilgiler}/>
     </>
   );
 };
