@@ -6,13 +6,16 @@ import Data from "../helper/Data";
 
 const Home = () => {
 
-  
+const[gorevler, setGorevler] = useState(Data)
+
+
+
 
   return (
     <div>
-      <GorevEkle  />
+      <GorevEkle gorevler={gorevler} setGorevler={setGorevler} />
 
-      <GorevleriGoster  />
+      <GorevleriGoster gorevler={gorevler} setGorevler={setGorevler} />
     </div>
   );
 };

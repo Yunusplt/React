@@ -1,11 +1,28 @@
 import { useState } from "react";
+import moment from "moment";
 
-const GorevEkle = () => {
+const GorevEkle = ({gorevler,setGorevler}) => {
+let length = gorevler.length;
 
+const [text, setText] = useState("");
+const [day, setDay] = useState("");
+
+
+const addTask=(e)=>{
+  e.preventDefault();
+  setGorevler([
+    ...gorevler,
+    {
+      id: length + 1,
+      text: text,
+      day: moment(day).format("MMM Do [at] h:mma"),
+      bitti: true,
+    },
+  ]);
   
- 
   
- 
+}
+
   return (
     <div>
       <header className="header">
@@ -17,7 +34,7 @@ const GorevEkle = () => {
            ADD TASK BAR
         </button>
       </header>
-        <form >
+        <form onSubmit={addTask}>
           <div className="form-control">
             <label htmlFor="text">Task</label>
             <input
@@ -25,6 +42,7 @@ const GorevEkle = () => {
               type="text"
               name="text"
               placeholder="Add Task"
+              onChange={(e)=>setText(e.target.value)}
              
             />
           </div>
@@ -35,7 +53,7 @@ const GorevEkle = () => {
               type="date"
               name="day"
               placeholder="Add Task"
-            
+              onChange={(e)=>setDay(e.target.value)}
             />
           </div>
           <div>
