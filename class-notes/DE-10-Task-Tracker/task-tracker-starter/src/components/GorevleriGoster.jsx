@@ -7,9 +7,9 @@ const deleteTask =(taskId)=>{
   setGorevler(gorevler.filter((x)=>x.id !== taskId))
 }
 
-const cizTask=(taskId)=>{
-  setGorevler(gorevler.map((x)=>{x.id === taskId ? className="" })
-}
+// const handleDoubleClick=(item)=>{
+//   setGorevler(item)
+// }
 
 console.log(gorevler);
 
@@ -19,15 +19,17 @@ console.log(gorevler);
 
         return (
           <div
-          key={x.id}
-          onDoubleClick={()=> cizTask(x.id)}
-          className="gorev"
+            key={x.id}
+            className={x.bitti ? "done" : "gorev"}
+            onDoubleClick={() => setGorevler(
+              gorevler.map((item)=> item.id === x.id ? {...item, bitti : !item.bitti} : item)
+            )}
           >
             <h3>
               {x.text}
               <FaTimesCircle
                 style={{ color: "red" }}
-               onClick={()=> deleteTask(x.id)}
+                onClick={() => deleteTask(x.id)}
               />
             </h3>
             <h6>{x.day}</h6>
