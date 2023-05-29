@@ -8,14 +8,21 @@ const Home = () => {
   const url = ("https://restcountries.com/v3.1/all");
 
   const getCountyDataFromApi = async () => {
+    try{
     const response = await fetch(url);
     const data = await response.json();
     setUlkeler(data);
+    }catch(error){
+      console.log(error);
+    }
+  }
+  if (ülkeler.length === 0 ) {
+    getCountyDataFromApi();
   }
 
  useEffect(() => {
    getCountyDataFromApi();
- }, []);
+ }, [ülkeler]);
 
   // ! 1- ) yukarıdaki url den (api den),  fetch ile DATA  çekilip bir diziye atılmalı (useEffect unutmayın) ve  dizide dönerek card lara bastırılmalı.
   //! 2-)sonra jsx alanındaki button a onclick yapıldığında tıklanan ülkenin name.common u alınarak navigate ile details sayfasına yol verilmeli, o yol App.js de, buradan gelen name ile Details sayfasına gitmeli

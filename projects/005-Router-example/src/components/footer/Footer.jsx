@@ -1,8 +1,15 @@
-import "./Footer.css";
+// import "./Footer.css";
+
+import React from "react";
+import { Navbar } from "react-bootstrap";
 
 const Footer = () => {
   return (
-   <div>Footer</div>
+    <div>
+      <Navbar className="justify-content-center bg-dark p-1 text-light fixed-bottom">
+        <p> Copyright {new Date().getFullYear()} </p>
+      </Navbar>
+    </div>
   );
 };
 

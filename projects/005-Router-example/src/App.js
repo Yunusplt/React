@@ -5,6 +5,7 @@ import MyNavbar from "./components/navbar/MyNavbar";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Details from "./pages/details/Details";
+import Footer from "./components/footer/Footer";
 
 
 function App() {
@@ -17,9 +18,10 @@ function App() {
 
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/details/:name" element={<Details/>} />
+          <Route path="/details/:namee" element={<Details/>} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );
