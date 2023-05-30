@@ -10,6 +10,10 @@ gap: 2rem;
 padding: 60px;
 display: flex;
 flex-direction: ${({ters})=> ters || "row" };
+@media (max-width:${({theme})=> theme.responsive}) {
+    flex-direction: column;
+    background-color: pink;
+}
 `;
 
 export default KartSSS;
