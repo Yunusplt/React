@@ -1,20 +1,24 @@
 import React from 'react'
 import { Button, FoodInput, FormContainer, HeaderContainer, MainHeader, Select } from './HeaderStyles'
 
-const Header = () => {
+const Header = ({setQuery, setMealType, getData}) => {
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    getData()
+  }
   return (
     <HeaderContainer>
       <MainHeader>
         FOOD APP
       </MainHeader>
-      <FormContainer>
-       <FoodInput placeholder='Search'>
+      <FormContainer onSubmit={handleSubmit}>
+       <FoodInput placeholder='Search' onChange={(e)=>setQuery(e.target.value)}>
        </FoodInput> 
        <Button>Search</Button>
-       <Select>
+       <Select onChange={(e)=>setMealType(e.target.value)}>
         <option>Breakfast</option>
         <option>Lunch</option>
-        <option>Tea Time</option>
+        <option>TeaTime</option>
        </Select>
       </FormContainer>
     </HeaderContainer>

@@ -20,21 +20,18 @@ const Home = () => {
   const getData = async ()=>{
     const veri = await axios.get(url)
     setRecipes(veri.data.hits)
-    console.log(veri);
-
   }
 // useEffect(()=>{
 //   getData()
 //   },[])
 
-console.log(recipes);
   return (
     <div>
       <Header setQuery = {setQuery} setMealType = {setMealType} getData = {getData} />
 
       {recipes.length > 0 ? (
         <div>
-          {/* <RecipeCard recipes = {recipes} /> */}
+          <RecipeCard recipes = {recipes} />
         </div>
       ) : (
         <ImgDiv>

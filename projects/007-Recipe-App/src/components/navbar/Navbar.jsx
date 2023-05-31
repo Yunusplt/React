@@ -5,7 +5,7 @@ const Navbar = () => {
   const [acik, setAcik] = useState(false)
   return (
     <Nav>
-      <Logo to="/" onClick={() => setAcik(false)}>
+      <Logo to="/home" onClick={() => setAcik(false)}>
         <i>{"<Clarusway>"}</i>
         <span>recipe</span>
       </Logo>
@@ -17,7 +17,7 @@ const Navbar = () => {
         <a href="https://github.com/" target="blank">
           Github
         </a>
-        <MenuLink>Logout</MenuLink>
+        <MenuLink to="/">Logout</MenuLink>
       </Menu>
     </Nav>
   );

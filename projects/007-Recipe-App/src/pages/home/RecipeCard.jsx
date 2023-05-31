@@ -7,13 +7,13 @@ const RecipeCard = ({ recipes }) => {
   let navigate = useNavigate();
   return (
     <MainContainer>
-      {recipes.map((i) => (
-        <Cards key={i.recipe.id}>
-          <RecipeHeader>{i.recipe.label}</RecipeHeader>
-          <RecipeImage src={i.recipe.image} />
+      {recipes.map((item,index) => (
+        <Cards key={index}>
+          <RecipeHeader>{item.recipe.label}</RecipeHeader>
+          <RecipeImage src={item.recipe.image} />
           <Button
             onClick={() => {
-              navigate("/details", { state: { i } });
+              navigate("/details", { state: { item } });
             }}
           >
             Details
