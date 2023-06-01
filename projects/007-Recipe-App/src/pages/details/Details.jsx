@@ -62,7 +62,7 @@ const Details = () => {
           <p>
             {item.recipe.ingredients.map((i, index) => {
               return (
-                <div>
+                <div key={index}>
                   <p>
                     {index + 1} * {i.text}
                   </p>
