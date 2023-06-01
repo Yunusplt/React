@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   FormContainer,
   Header,
@@ -11,19 +11,22 @@ import {
 import mealSvg from "../../assets/meal.svg";
 import { useNavigate } from "react-router-dom";
 
+
 const Login = () => {
+
   const navigate = useNavigate();
-  const handleSubmit=(e)=>{
-    e.preventDefault()
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     navigate("/home");
-  }
+  };
   return (
     <LoginContainer>
-      <FormContainer>
+      <FormContainer >
         <StyledImg src={mealSvg} />
         <Header>{"<Clarusway/>"}Recipe</Header>
 
-        <StyledForm onSubmit={handleSubmit}>
+        <StyledForm   onSubmit={handleSubmit}>
           <StyledInput type="text" placeholder="username" required />
 
           <StyledInput type="password" placeholder="password" required />

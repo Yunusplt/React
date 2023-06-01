@@ -1,39 +1,37 @@
-
-import Header from "../../components/header/Header"
-import RecipeCard from "./RecipeCard"
-import { HomeImg, ImgDiv } from './HomeStyles'
-import homeSvg from "../../assets/home.svg"
-import { useState } from "react";
-import axios from 'axios'
+import React, { useState } from "react";
+import axios from "axios";
+import Header from "../../components/header/Header";
+import RecipeCard from "./RecipeCard";
+import { HomeImg, ImgDiv } from "./HomeStyles";
+import homeSvg from "../../assets/home.svg";
 
 const APP_ID = "bfbb3efc";
 
 const APP_KEY = "43faeee790f26cd82b28050d3031619d";
 
 const Home = () => {
-  const[yemekler, setYemekler] = useState([])
-  const[query, setQuery] = useState("")
-  const[ogun, setOgun] = useState("Breakfast")
+  const [query, setQuery] = useState("");
+  const [ögün, setOgun] = useState("Breakfast");
 
-
+  const [yemekler, setYemekler] = useState([]);
   // query=yazdığımız sorgu kelimesi, mealType=breakfast vs
-  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${ogun}`;
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${ögün}`;
 
-  const getData = async()=>{
-    const veri = await axios.get(url)
-    setYemekler(veri.data.hits)
-  }
-
- 
- return (
+  const getData = async () => {
+    const veri = await axios.get(url);
+    setYemekler(veri.data.hits);
+    console.log(veri);
+  };
+    console.log(yemekler);
+  return (
     <div>
-   
-      <Header  />
+      <Header setQuery={setQuery} setOgun={setOgun} getData={getData} />
 
-      {[].length>0 ? (
+      {yemekler.length > 0 ? (
         <div>
-            <RecipeCard />
           
+          <RecipeCard yemekler={yemekler}/>
+       
         </div>
       ) : (
         <ImgDiv>
@@ -42,6 +40,6 @@ const Home = () => {
       )}
     </div>
   );
-}
+};
 
-export default Home
+export default Home;
