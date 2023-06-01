@@ -5,7 +5,8 @@ const Person = (props) => {
 //!destructing 2 farkli yol
 //todo const Person = ({name, img}) => {
 const {name,img} = props
-    console.log(props);
+  
+ 
     //! burdan bir object geldi. 
     
   return (

@@ -7,7 +7,9 @@ const MyNavbar = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#"><img src={image} alt="" /></Navbar.Brand>
+        <Navbar.Brand href="#">
+          <img src={image} alt="" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -19,14 +21,9 @@ const MyNavbar = () => {
             <Nav.Link href="#action2">People</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Full-stack</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Data-science
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action5">
-                Devops
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Data-science</NavDropdown.Item>
+              <NavDropdown.Item href="#action5">Devops</NavDropdown.Item>
             </NavDropdown>
-
           </Nav>
           <Form className="d-flex">
             <Form.Control

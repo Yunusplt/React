@@ -1,9 +1,10 @@
 import React from 'react'
-
-const Msg = (props) => {
+//todo illede props yazilmak zorunda degil...
+const Msg = (pro) => {
+  console.log(pro);
   return (
     <div>
-        <h1>Merhaba ben {props.myName}</h1>
+        <h1>Merhaba ben {pro.myName}</h1>
     </div>
   )
 }
