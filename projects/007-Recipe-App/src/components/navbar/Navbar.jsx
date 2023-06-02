@@ -12,7 +12,7 @@ const Navbar = () => {
       <Hamburger>
         <GiHamburgerMenu onClick={() => setAcik(!acik)} />
       </Hamburger>
-      <Menu osman={acik} onClick={() => setAcik(!acik)}>
+      <Menu osman={acik} onClick={() => setAcik(false)}>
         <MenuLink to="/about">About</MenuLink>
         <a href="https://github.com/" target="blank">
           Github
