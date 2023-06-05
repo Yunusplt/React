@@ -2,23 +2,21 @@ import { useState } from "react";
 import load from "./img/loading-loading-gif.gif";
 
 const UseStateExample = () => {
- const [dogResim, setDog] = useState("")
-const [loading, setLoading] = useState(false)
-const [error, setError] = useState("")
-
-
+  const [dogResim, setDog] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const fetchDog = () => {
-    setLoading(true)
-    fetch("https://dog.ce/api/breeds/image/random")
+    setLoading(true);
+    fetch("https://dog.ceo/api/breeds/image/random")
       .then((res) => res.json())
       .then((data) => {
-     setDog(data.message)
-     setLoading(false)
+        setDog(data.message);
+        setLoading(false);
       })
       .catch(() => {
-     setError("DIKKAT URL'DE HATA VAR")
-     setLoading(false)
+        setError("DİKKAT URL DE HATA VAR");
+        setLoading(false);
       });
   };
   return (
@@ -35,8 +33,8 @@ const [error, setError] = useState("")
       >
         Fetch Dog
       </button>
-      {dogResim && <img src={dogResim} alt="" />}
       {loading && <img src={load} alt="" />}
+      {dogResim && <img src={dogResim} alt="" />}
       {error && <h2>{error}</h2>}
     </div>
   );

@@ -5,21 +5,28 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { createContext } from "react";
 
-export const KullaniciContext = createContext()
+export const KullaniciContext=createContext()
 
 const App = () => {
-const [kullanici, setKullanici] = useState()
+  const [kullanici, setKullanici] = useState([]);
 
-useEffect(() => {
-  fetch("https://api.github.com/users").then((res)=>res.json()).then((data)=>setKullanici(data))
-}, [])
+  useEffect(() => {
+    fetch("https://api.github.com/users")
+      .then((res) => res.json())
+      .then((data) => setKullanici(data));
+  }, []);
 
-const degistirWidth=()=>{
+const degistirWidth=(id,yeniWidth)=>{
+ 
+setKullanici(
+  kullanici.map((a)=>a.id===id ? {...a,width:yeniWidth}:a)
+  )
 
 }
 
+
   return (
-    <KullaniciContext.Provider value={{degistirWidth,kullanici}}>
+    <KullaniciContext.Provider value={{kullanici,degistirWidth}}>
       <GosterUsers />
     </KullaniciContext.Provider>
   );

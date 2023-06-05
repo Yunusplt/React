@@ -5,7 +5,7 @@ import Isimler from '../components/Isimler'
 const GosterUsers = () => {
   return (
     <div>
-    <h2>GosterUsers Sayfasi</h2>
+    <h2>GosterUsers Sayfası</h2>
 <Baslik/>
 <Isimler/>
     </div>
