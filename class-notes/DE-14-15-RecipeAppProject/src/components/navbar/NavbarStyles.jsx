@@ -57,19 +57,20 @@ export const Menu = styled.div`
     /* tamamen gizler, hamburger tıklanınca bile açılmaz, o yüzden hidden kullandık */
     /* uzun yazı olurda taşarsa gizle (hamburgere dönüşünce)*/
     flex-direction: column;
+
     width: 100%;
-    height:200px;
+    /* height:200px; */
     /* props olarak, osman=true geldi mesela */
      /* max-height: ${({ osman }) => (osman ? "300px" : "0")};  */
 
      /*  alttaki gibi de kontrol edebiliriz . Menu div i display flex ve flex-direction column old için alt altalar*/
-    display: ${({ osman }) => (osman ? "flex" : "none")};
+   display: ${({osman})=>(osman ? "flex" : "none" )}
 
     /* max-height:300px; */
     /* 3 çizgiye ilk tıklandığında 300 px açılsın, sonraki tıklamada kapansın */
     /* max-height:300px yazarsak hep açık olur */
   }
-
+/* export const Mlink=styled.a */
   a {
     padding: 1rem 2rem;
     cursor: pointer;
