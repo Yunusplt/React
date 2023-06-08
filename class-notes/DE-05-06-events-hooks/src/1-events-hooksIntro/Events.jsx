@@ -9,7 +9,6 @@ const Events = () => {
         count = count +1
         document.querySelector("span").textContent = count
     }
-
     const butonBaslik=(a)=> {
         document.querySelector(".btn-info").textContent = a
 
