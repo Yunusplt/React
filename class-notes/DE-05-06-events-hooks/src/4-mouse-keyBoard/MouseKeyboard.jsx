@@ -11,7 +11,7 @@ const MouseKeyboard = () => {
 
 
     const mouseOlayi=(e)=>{
-        console.log(e.keyCode);
+        console.log(e);
         // console.log(e.clientX,e.clientY);
         // console.log(e.pageX,e.pageY);
         setXekseni(e.pageX)
@@ -19,7 +19,7 @@ const MouseKeyboard = () => {
     }
 
     const keyDownOlayi=(e)=>{
-        console.log(e);
+        console.log(e.keyCode);
         if (e.keyCode >=48 && e.keyCode<=57) {
             alert("Lütfen harf giriniz.")
         }else alert("Tebrikler harf girdiniz.")

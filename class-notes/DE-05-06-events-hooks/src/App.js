@@ -9,12 +9,12 @@ import MouseKeyboard from "./4-mouse-keyBoard/MouseKeyboard";
 function App() {
   return (
     <div>
-    <Events/>
+    {/* <Events/> */}
     {/* <Hooks/> */}
     {/* <Counter/> */}
     {/* <Counter count={20}/> */}
     {/* <Form/> */}
-    {/* <MouseKeyboard/> */}
+    <MouseKeyboard/>
     </div>
   );
 }

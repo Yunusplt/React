@@ -2,6 +2,7 @@
 import axios from "axios";
 
 import { AiFillDelete } from "react-icons/ai";
+
 const BilgiList = ({bilgiler,getBilgiler}) => {
 const url = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
 
