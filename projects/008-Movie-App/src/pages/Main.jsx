@@ -4,7 +4,7 @@ import MovieCard from '../components/MovieCard';
 const Main = () => {
   return (
     <>
-      <div className="bg-gray-400 flex justify-center p-4">
+      <div className= " bg-gray-400 flex justify-center p-4">
         <form action="">
           <input
             type="search"
