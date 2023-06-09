@@ -1,13 +1,15 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import avatar from "../assets/icons/avatar.png";
+import { AuthContext } from "../context/AuthContext";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
+  const {logOut} = useContext(AuthContext)
   const currentUser = { displayName: "felix franko" };
   // const currentUser = false
   return (
@@ -82,6 +84,8 @@ export default function Navbar() {
                             active ? "bg-gray-100" : "",
                             "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
                           )}
+                          onClick={()=>logOut()}
+                          //todo bunu contextle yakalamlyiim
                         >
                           Sign out
                         </span>
