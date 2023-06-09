@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 const Register = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const {createUser} = useContext(AuthContext)
+  const {createUser, signUpProvider} = useContext(AuthContext)
 
   const handleSubmit=(e)=>{
     e.preventDefault()
@@ -73,6 +73,7 @@ const Register = () => {
           <button
             className="btn-danger-bordered flex justify-between items-center"
             type="button"
+            onClick={()=> signUpProvider()}
           >
             Continue with Google
             <GoogleIcon color="currentColor" />
