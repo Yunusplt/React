@@ -1,7 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import avatar from "../assets/icons/avatar.png"
 import { Link } from "react-router-dom";
+import { AuthContexxx } from "../context/AuthContext";
 
 // todo tailwindcss.comdan navbar yapisi bulduk. navbar yapisi interactive oldugu icin npm install @headlessui/react  @heroicons/react comandlarini terminale girdik. bu kod tailwindcss.com adresinde documentation kismindan tedarik edildi. daha sonra navbara compenentinin tamamini silip paste yapiyoruz. gerekli olmayanlari siliyoruz wie Discloser.Panel
 
@@ -10,7 +11,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  const currentUser = {displayName : "felix franko"}
+  const {logOut,currentUser} = useContext(AuthContexxx)
+  // const currentUser = {displayName : "felix franko"}
   // const currentUser = false
   return (
     <>
@@ -27,10 +29,11 @@ export default function Navbar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={currentUser.photoURL || avatar}
-                        //  Bu özelliğin değeri "no-referrer" olduğunda, tarayıcı, kaynak URL'sini referans olarak paylaşmaz. Googledan cekecegimiz icin gerekli olabilir.
-                        referrerPolicy="no-referrer"
+                        src={avatar || currentUser.photoURL}
+                         referrerPolicy="no-referrer"
                         alt=""
+                        //  Bu özelliğin değeri "no-referrer" olduğunda, tarayıcı, kaynak URL'sini referans olarak paylaşmaz. Googledan cekecegimiz icin gerekli olabilir.
+                       
                       />
                     </Menu.Button>
                   </div>
@@ -78,6 +81,7 @@ export default function Navbar() {
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
                             )}
+                            onClick={()=>logOut()}
                           >
                             Logout
                           </span>

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MovieContext } from "../context/MovieContext";
 
 const Main = () => {
-  return <div>Main</div>;
+  const {movie} = useContext(MovieContext)
+  console.log(movie);
+
+
+  return <div>
+    {movie.map((item)=>(item.title))}
+  </div>;
 };
 
 export default Main;
