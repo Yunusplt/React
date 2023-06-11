@@ -48,7 +48,7 @@ import { useNavigate } from 'react-router-dom'
        // mevcut kullanicin giris yapmasi icin kullanilan firebase methodu
        await signInWithEmailAndPassword(auth, email, password);
        toastSuccessNotify("Logged in successfully");
-       navigate("/home");
+       navigate("/");
      } catch (error) {
        toastErrorNotify(error.message);
      }
