@@ -1,0 +1,33 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "gray-dark-main": "#23242a",
+        "gray-dark-second": "#28292d",
+        "gray-light": "#d3dce6",
+        "red-main": "#ff4b45",
+      },
+    },
+  },
+  darkMode: "class",
+  // todo we added class="dark" to enable darkmode
+  plugins: [],
+};
+
+// todo Colors palette yi eger asagidaki gibi tanimlarsan, sadece tanimladigin renkleri kullanabilirsin. ama yukaridaki gibi tanimlarsan. hem tanimladigin renkleri kullanabilirsin. hem de tailwindcss in kendi renklerini kullanmaya devam edebilirsin.
+
+// module.exports = {
+//   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+//   theme: {
+//     colors: {
+//       "gray-dark-main": "#23242a",
+//       "gray-dark-second": "#28292d",
+//       "gray-light": "#d3dce6",
+//       "red-main": "#ff4b45",
+//     },
+//     extend: {},
+//   },
+//   plugins: [],
+// };
