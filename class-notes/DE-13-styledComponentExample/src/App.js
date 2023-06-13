@@ -10,6 +10,8 @@ const style = {
 
 }
 
+// todo ThemeProvider aslinda advance konusu. App.js de yada ana sayfada style ile css tanimliyoruz. bunu tüm cocuklara gönderebilmek icin <ThemeProvider sarmalina aliyoruz. ve theme={style} ile tüm cocuklara gönderiyoruz. 
+
 
 const App = () => {
   return (

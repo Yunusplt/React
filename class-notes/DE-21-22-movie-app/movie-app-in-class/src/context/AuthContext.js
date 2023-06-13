@@ -4,12 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { auth } from '../auth/firebase'
 import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from '../helpers/ToastNotify'
 import { useNavigate } from 'react-router-dom'
+// import { deleteUser } from "firebase/auth";
 
  export const AuthContexxx = createContext()
 
 //todo createUserWithEmailAndPassword ii register compenentinde kullanacagiz. o yuzden bu methodu createUserr a atiyoruz. daha sonra onu da registerde cagiriyooruz.. 
  
- 
+// const user = auth.currentUser();
  const AuthContextProvider = ({children}) => {
    const [currentUser, setCurrentUser] = useState();
    let navigate = useNavigate();
@@ -104,11 +105,20 @@ import { useNavigate } from 'react-router-dom'
           // ..
         });
     };
-
-   const values = { createUserr, signIn, logOut, signUpProvider, currentUser,forgotPassword };
+    // const deleteAccount = () => {
+    //   deleteUser(user).then(() => {
+    //     toastSuccessNotify("Account is sucessfull deleted.")
+    //   })
+    //   .catch((error) => {
+    //     toastErrorNotify("An error is occured: " + error);
+    //   });
+      
+    // }
+   const values = { createUserr, signIn, logOut, signUpProvider, currentUser,forgotPassword};
    return (
      <AuthContexxx.Provider value={values}>{children}</AuthContexxx.Provider>
    );
- }
+
+   }
  
  export default AuthContextProvider;
