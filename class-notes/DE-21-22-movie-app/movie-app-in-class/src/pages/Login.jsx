@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signIn, signUpProvider } = useContext(AuthContexxx);
+  const { signIn, signUpProvider, forgotPassword } = useContext(AuthContexxx);
 
 
   const handleSubmit = (e) => {
@@ -58,7 +58,8 @@ const Login = () => {
             </label>
             </div>
             <div className="flex justify-between">
-            <span className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]">
+            <span className="py-3 font-[0.75em] cursor-pointer decoration-none text-gray-500 hover:text-[#ff4b45]"
+            onClick={()=>forgotPassword(email)}>
               Forgot Password
             </span>
             <Link

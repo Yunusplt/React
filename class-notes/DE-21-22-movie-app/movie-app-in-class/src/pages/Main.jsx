@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MovieContext } from "../context/MovieContext";
 import MovieCard from "../components/MovieCard";
 import { AuthContexxx } from "../context/AuthContext";
@@ -11,6 +11,8 @@ const Main = () => {
   const {movie, loading, getMovies} = useContext(MovieContext)
   const {currentUser} = useContext(AuthContexxx)
   console.log(movie);
+
+  
 
 
   const handleSubmit=(e)=>{
