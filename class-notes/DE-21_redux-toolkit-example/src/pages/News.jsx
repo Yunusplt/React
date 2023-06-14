@@ -12,13 +12,22 @@ import { getData, clearList } from '../features/haberSlice';
 
 const News = () => {
 
+  const dispatch=useDispatch()
+  const {haberler,loading} = useSelector((state)=>state.haberSlice)
+
+  console.log(haberler)
+
+  useEffect(() => {
+    dispatch(getData)
+  }, [dispatch])
+  
 
 
  
   return (
     <>
       {/* loading değikeni buraya true gelirse salyangoz resmini bas yoksa....altta yazan diziyi card lara bastır */}
-      {[] ? (
+      {loading ? (
         <Box
           display="flex"
           alignItems="center"

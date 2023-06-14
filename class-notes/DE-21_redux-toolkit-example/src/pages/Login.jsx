@@ -8,20 +8,31 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import {olusturKullanici} from "../features/yetkiSlice"
 
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
 
+  //todo uzun yoldan 
 
+  // const email = useSelector((state)=>state.yetkiSlice.email)
+  // const password = useSelector((state)=>state.yetkiSlice.password)
+
+  //todo kisa yolu
+  //todo obje degissin diye let. dizi olsaydi const kalabilirdi. 
+  let { email, password } = useSelector((state) => state.yetkiSlice);
+  const navigate=useNavigate()
+
+  const dispatch= useDispatch()
   
   
   const handleSubmit = (e) => {
     e.preventDefault();
-  
+    dispatch(olusturKullanici({email,password}))
+    navigate("/")
   };
 
   return (
@@ -52,8 +63,9 @@ export default function Login() {
             name="email"
             autoComplete="email"
             autoFocus
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            // value={email}
+            // onChange={(e) => setEmail(e.target.value)}
+            onChange={(e)=>email=e.target.value}
           />
           <TextField
             margin="normal"
@@ -64,8 +76,9 @@ export default function Login() {
             type="password"
             id="password"
             autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
+            onChange={(e)=>password=e.target.value}
           />
 
           <Button

@@ -8,9 +8,11 @@ import todoReducer from "./redux/reducers/todoReducer";
 
 function App() {
  
-  const topluReducer = combineReducers({counterReducer:counterReducer, todoReducer:todoReducer})
 
-  const store = createStore(topluReducer)
+const topluReducer=combineReducers({counterReducer:counterReducer,todoReducer:todoReducer})
+
+
+const store=createStore(topluReducer)
 
   return (
     <div className="app">
