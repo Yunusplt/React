@@ -18,7 +18,7 @@ const News = () => {
   console.log(haberler)
 
   useEffect(() => {
-    dispatch(getData)
+    dispatch(getData())
   }, [dispatch])
   
 
@@ -44,7 +44,7 @@ const News = () => {
           justifyContent="space-evenly"
           flexWrap="wrap"
         >
-          {[].map((item, index) => (
+          {haberler.map((item, index) => (
             <Card sx={{ maxWidth: 345, m: 5, maxHeight: 600 }} key={index}>
               <CardMedia
                 component="img"
