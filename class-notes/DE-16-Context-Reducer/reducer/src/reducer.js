@@ -1,10 +1,12 @@
+//todo initialState baslangic degerlerini temsil eder const [loading,setLoading]=useState(false) gibi. 
 export const initialState = {
   loading: false,
   dog: "",
   error: "",
 };
-
+//todo reducer adinda bir islev tanimlanir. İşlevin parametreleri state (mevcut durum) ve action (gerçekleştirilen eylem) olarak adlandırılır.
 export const reducer = (state, action) => {
+ 
   switch (action.type) {
     case "START":
       return { ...state, dog: "", error: "", loading: true };
@@ -15,3 +17,4 @@ export const reducer = (state, action) => {
       default:
   }
 };
+ 

@@ -4,6 +4,7 @@ import { KullaniciContext } from "../App";
 
 
 const AnaUser = ({kullanici}) => {
+  //todo burada kullanici Props olarak bir önceki sayfadan yani parentden cchilda gönderilmis. istersek ikisini de ccontextle alabilirdik.
 //  const{kullanici,degistirWidth}=useContext(KullaniciContext)
 const {  degistirWidth } = useContext(KullaniciContext);
 console.log(kullanici);
