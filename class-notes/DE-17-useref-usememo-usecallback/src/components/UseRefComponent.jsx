@@ -3,19 +3,17 @@ import React, { useRef} from "react";
 
 // const UseRefComponent = () => {
 
-//   //? 1.kullanim. az tercih edilen.
+//   //? 1.kullanim. az tercih edilen.  yorumdan cikartirsan Browserda farkli bir görüntü var. 
 //   const [sayac, setSayac] = useState(0);
 //   const sayacRef = useRef(0)
 
 //   console.log("sayac", sayac);
-//   console.log("sayacRef" , sayacRef);
+//   console.log("sayacRef" , sayacRef.current);
 
 //   const arttir =()=>{
 //     setSayac(sayac+1)
-//     //todo burada setsayac kapatilirsa render yapilirken sayfea basina gidemicek useState özelligi olmadigi icin. setRef le sayac artacak ama ekrana yansimayacak bu yuzden. Bilgisayari yormak istemezsem(her seferinde referans numarasi verir her render ve pc yorulur) sürekli render olsun istemezsem ama arka planda sadece sayi arttirmaya ihtiyacim varsa bu sefer useRef mantikli. 
-
-
-//     sayacRef.current++
+//     //todo burada setsayac yoruma alinirsa render yapilirken sayfea basina gidemicek useState özelligi olmadigi icin. setRef le sayac artacak ama ekrana yansimayacak bu yuzden. Bilgisayari yormak istemezsem(her seferinde referans numarasi verir her render ve pc yorulur) sürekli render olsun istemezsem ama arka planda sadece sayi arttirmaya ihtiyacim varsa bu sefer useRef mantikli. 
+//     sayacRef.current++ 
 //   }
 
 //   return (
@@ -36,23 +34,22 @@ import React, { useRef} from "react";
 
 
 const UseRefComponent = () => {
-
   //? 2. kullanim DOM elemanlarina ulasmamizi saglar.
 
-  const inputRef = useRef()
-  const divRef = useRef()
+  const inputRef = useRef();
+  const divRef = useRef();
 
-  const renkDegistir=()=>{
-    divRef.current.style.backgroundColor=inputRef.current.value 
-  }
+  const renkDegistir = () => {
+    console.log(divRef.current);
+    console.log(inputRef.current.value);
+    divRef.current.style.backgroundColor = inputRef.current.value;
+  };
 
   return (
     <div ref={divRef}>
       <h2>UseRef Component</h2>
-      <input type="text" placeholder="enter a text" ref={inputRef}/>
-      <button 
-      onClick={renkDegistir}
-      >Change Renk</button>
+      <input type="text" placeholder="enter a text" ref={inputRef} />
+      <button onClick={renkDegistir}>Change Renk</button>
     </div>
   );
 };

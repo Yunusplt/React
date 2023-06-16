@@ -14,7 +14,7 @@ const ReactMemo = () => {
   return (
     <div>
     {/* todo her renderda header birdaha yukleniyor. buyuk verilerde bu problem. bunu engellemek icin header a git ver Headeri memo sarmalina al */}
-      <Header resim={resim}/>
+      <Header resim={resim}/> 
       <p>COUNT: {sayac}</p>
       <button
       onClick={arttir}

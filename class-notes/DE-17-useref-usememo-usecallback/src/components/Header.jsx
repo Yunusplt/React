@@ -8,7 +8,7 @@ const Header = ({resim}) => {
   return (
     <div className="header">
       <img
-        src={resim}
+        src={resim} 
         alt="cw_logo"
         style={{ margin: '1rem', maxHeight: '200px' }}
       />

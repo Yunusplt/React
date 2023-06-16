@@ -1,11 +1,11 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import axios from "axios"
 import Users from './components/Users'
 
 const UseMemoCallBack = () => {
 
   const [kisiler, setKisiler] = useState([])
-  const [text, setText] = useState("")
+  const [text, setText] = useState("")  //! diziyi filtrelemek icin lazim. 
   const [bitmisHali, setBitmis]=useState("")
   
 
@@ -22,16 +22,21 @@ const UseMemoCallBack = () => {
 
 const filtreli = useMemo(()=>kisiler.filter((i)=>i.name.includes(bitmisHali)),[kisiler,bitmisHali])
 
+const ekle = useCallback(() => {
+  setKisiler([...kisiler, { id: kisiler.length + 1, name: "osman" }]);
+}, [kisiler]);
+
   return (
     <div>
-      <input type="search" onChange={(e)=>setText(e.target.value)}/>
-      <button 
-      onClick={()=>setBitmis(text)}
-      >SEARCH</button>
+      <input type="search" onChange={(e) => setText(e.target.value)} />
+      <button onClick={() => setBitmis(text)}>SEARCH</button>
+      <button onClick={ekle} id="add-button">
+        EKLE
+      </button>
       {/* <Users kisiler={kisiler}/> */}
-      <Users kisiler={filtreli}/>
+      <Users kisiler={filtreli} />
     </div>
-  )
+  );
 }
 
 export default UseMemoCallBack;
@@ -66,7 +71,7 @@ export default UseMemoCallBack;
 
 //   return (
 //     <div>
-//       <input type="search" ref={InputRef}/>
+//       <input type="search" ref={InputRef} />
 //       <button 
 //       onClick={()=>setText(InputRef.current.value)}
 //       >SEARCH</button>
