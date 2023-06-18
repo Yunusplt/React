@@ -1,12 +1,8 @@
 
 
-const initial={gorevler:[{id:0, yazi:"Redux Çalışıyoruz"},{id:1,yazi:"köpekleri gezdir"}]}
+const initial={gorevler:[{id:0, yazi:"Redux Çalişiyoruz"},{id:1,yazi:"köpekleri gezdir"}]}
 
-const todoReducer = ( state=initial,action
-
-
-
-) => {
+const todoReducer = ( state=initial,action) => {
 
     // console.log(action);
  switch (action.type) {

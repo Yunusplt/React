@@ -10,6 +10,7 @@ function App() {
  
 
 const topluReducer=combineReducers({counterReducer:counterReducer,todoReducer:todoReducer})
+//todo reducer folder i altindaki tüm reducer file lari. combineReducer catisi altinda toplaniyor. valuelar file name. keys are newname. Cocuklar keyleri görecek. yani napiyoruz. tüm Reducerlar combineReducer ile bir araya getiriliyor. daha sonra CombineReducer createStore yapiliyor. store name e atiliyor. provider sarmalinda store props gibi gönderiliyor. bütün cocuklar bütün reducerlari görsün diye. 
 
 
 const store=createStore(topluReducer)

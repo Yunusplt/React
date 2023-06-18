@@ -11,6 +11,7 @@ const dispatch=useDispatch()
     e.preventDefault();
        
    dispatch(ekle(gorevler2.yazi)); 
+   
 
   };
   return (
@@ -20,6 +21,7 @@ const dispatch=useDispatch()
         type="text"
         placeholder="Add Todo"
         // value={gorevler2.yazi}
+        
 
 onChange={(e)=>gorevler2.yazi=e.target.value}
       />
