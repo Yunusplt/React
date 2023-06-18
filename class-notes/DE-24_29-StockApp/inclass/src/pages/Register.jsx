@@ -9,29 +9,31 @@ import { Box, Button, TextField } from "@mui/material";
 import { Form, Formik } from "formik";
 
 import * as Yup from "yup";
+import useAuthCall from "../hooks/useAuthCall";
 
 const SignupSchema = Yup.object().shape({
   username: Yup.string()
-    .min(4, "Too Short!")
+    .min(1, "Too Short!")
     .max(150, "Too Long!")
     .required("username required"),
   first_name: Yup.string().max(100, "Too Long!").required("Required"),
   last_name: Yup.string().max(100, "Too Long!").required("Required"),
   email: Yup.string().email("Invalid email").required("Email required"),
   password: Yup.string()
-    .min(8, "En az 8 karakter uzunluğunda olması lazım")
+    .min(8, "En az 8 karakter uzunluğunda olmasi lazim")
     .max(50, "Too Long!")
-    .matches(/\d+/, "Password bir sayı içermelidir")
+    .matches(/\d+/, "Password bir sayi içermelidir")
     .matches(/[a-z]/, "Password bir küçük harf içermelidir")
     .matches(/[A-Z]/, "Password bir büyük harf içermelidir")
     .matches(/[!,?{}><%&$#£+-.]+/, "Password bir özel karakter içermelidir") //regex
     .required("Required"),
   password2: Yup.string()
-    .oneOf([Yup.ref("password")], "Password aynı olmak zorundadır!")
+    .oneOf([Yup.ref("password")], "Password ayni olmak zorundadir!")
     .required("Required"),
 });
 
 const Register = () => {
+  const register = useAuthCall()
   return (
     <Container maxWidth="lg">
       <Grid
@@ -70,6 +72,7 @@ const Register = () => {
             Register
           </Typography>
           <Formik
+            //todo initialValuesi database'im den aliyorum.
             initialValues={{
               username: "",
               first_name: "",
@@ -81,13 +84,14 @@ const Register = () => {
             validationSchema={SignupSchema}
             onSubmit={(values, actions) => {
               //! submit işlemi gerçekleştiğinde yapmasını istediğimiz işlemleri buraya yazıyoruz.
-
               console.log(values);
-              actions.resetForm();
-              //todo submit yapinca inputlari bosaltiyor. 
+              register(values);
+              actions.resetForm();  //! inputlari bosaltmak icin kullanilir. 
+              //todo submit yapinca inputlari bosaltiyor.
             }}
           >
             {({
+              //todo callback function 
               values,
               errors,
               touched,
@@ -96,14 +100,14 @@ const Register = () => {
               handleSubmit,
             }) => (
               <Form>
-                <Box sx={{display:"flex", flexDirection:"column", gap:2}}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
                     id="username"
                     label="User Name"
                     type="text"
                     variant="outlined"
                     name="username"
-                    value={values.username}
+                    value={values.username} 
                     onChange={handleChange}
                     onBlur={handleBlur}
                     helperText={touched.username && errors.username} //validationda verdiğimiz kalıba uymazsa ilgili mesajları göstermesi için
@@ -170,11 +174,8 @@ const Register = () => {
                     helperText={touched.password2 && errors.password2} //validationda verdiğimiz kalıba uymazsa ilgili mesajları göstermesi için
                     error={touched.password2 && errors.password2} //validationda verdiğimiz kalıba uymazsa rengi errora çevirmesi için
                   />
-                  <Button
-                  type="submit"
-                  variant="contained"
-                  size="large">
-                      SUBMIT
+                  <Button type="submit" variant="contained" size="large">
+                    SUBMIT
                   </Button>
                 </Box>
               </Form>
