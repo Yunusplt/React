@@ -12,6 +12,7 @@ const yetkiSlice=createSlice({
     reducers:{
         //todo istedigin kadar function tanimla buraya
         olusturKullanici:(state,action)=>{
+            // console.log(action);
             state.email=action.payload.email;
             state.password=action.payload.password;
         },

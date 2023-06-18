@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { kullaniciSil } from '../features/yetkiSlice';
 
@@ -13,8 +13,8 @@ const navigate=useNavigate()
 const dispatch=useDispatch()
 const email=useSelector((state)=>state.yetkiSlice.email)
   const handleLogout = () => {
-    kullaniciSil()
-    Navigate("/login")
+    dispatch(kullaniciSil())
+    navigate("/login")
   
   };
 
@@ -29,7 +29,15 @@ const email=useSelector((state)=>state.yetkiSlice.email)
           >
             Clarusway News
           </Typography>
-          <Button onClick={handleLogout} color="inherit">Login</Button>
+          {email==="osman" ? (
+            <Button onClick={handleLogout} color="inherit">
+              Logout
+            </Button>
+          ) : (
+            <Button color="inherit">
+              Login
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </Box>

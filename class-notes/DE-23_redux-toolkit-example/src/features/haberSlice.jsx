@@ -66,7 +66,13 @@ export const haberSlice = createSlice({
     haberler: [],
     loading: true,
   },
-  reducers: {},
+  reducers: {
+    newsSil:(state)=>{
+      console.log(state);
+      state.haberler = [];
+      state.loading = false
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getData.pending, (state) => {
@@ -79,5 +85,7 @@ export const haberSlice = createSlice({
       });
   },
 });
+
+export const { newsSil } = haberSlice.actions;
 
 export default haberSlice.reducer;

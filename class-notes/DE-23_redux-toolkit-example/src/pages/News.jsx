@@ -8,7 +8,7 @@ import { CardMedia } from '@mui/material';
 import loadingGif from '../assets/loading.gif';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getData, clearList } from '../features/haberSlice';
+import { getData, newsSil } from '../features/haberSlice';
 
 const News = () => {
 
@@ -22,6 +22,10 @@ const News = () => {
   }, [dispatch])
   
 
+
+const handleClick=()=>{
+  dispatch(newsSil())
+}
 
  
   return (
@@ -61,7 +65,7 @@ const News = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small" >
+                <Button size="small" onClick={handleClick}>
                   Clear
                 </Button>
                 <Button size="small" href={item?.url} target="_blank">
