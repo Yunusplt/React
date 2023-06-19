@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 
 function Dashboard() {
   const { currentUser } = useSelector(state => state.auth);
+  
 
   return (
     <Box sx={{ display: "flex" }}>

@@ -46,7 +46,8 @@ const Register = () => {
         sx={{
           height: "100vh",
           p: 2,
-        }}>
+        }}
+      >
         <Grid item xs={12}>
           <Typography variant="h3" color="primary" align="center">
             STOCK APP
@@ -60,14 +61,16 @@ const Register = () => {
               m: "auto",
               width: 40,
               height: 40,
-            }}>
+            }}
+          >
             <LockIcon size="30" />
           </Avatar>
           <Typography
             variant="h4"
             align="center"
             mb={2}
-            color="secondary.light">
+            color="secondary.light"
+          >
             Register
           </Typography>
           <Formik
@@ -84,9 +87,11 @@ const Register = () => {
               //! submit işlemi gerçekleştiğinde yapmasını istediğimiz işlemleri buraya yazıyoruz.
               console.log(values);
               register(values);
-              actions.resetForm();// inputları boşaltmak için kullanıyroruz
-            }}>
+              actions.resetForm(); // inputları boşaltmak için kullanıyroruz
+            }}
+          >
             {({
+              //todo callback function
               values,
               errors,
               touched,
@@ -95,7 +100,7 @@ const Register = () => {
               handleSubmit,
             }) => (
               <Form>
-                <Box sx={{display:"flex",flexDirection:"column",gap:2}}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
                     id="username"
                     label="User Name"
@@ -169,7 +174,9 @@ const Register = () => {
                     helperText={touched.password2 && errors.password2} //validationda verdiğimiz kalıba uymazsa ilgili mesajları göstermesi için
                     error={touched.password2 && errors.password2} //validationda verdiğimiz kalıba uymazsa rengi errora çevirmesi için
                   />
-                  <Button type="submit" variant="contained" size="large">Submit</Button>
+                  <Button type="submit" variant="contained" size="large">
+                    Submit
+                  </Button>
                 </Box>
               </Form>
             )}
