@@ -80,7 +80,7 @@ const Firms = () => {
   const { getStockData } = useStockCall();
   const {firms} = useSelector(state=> state.stock)
 
-  //? firms verileri bana birden fazla yerde lazım olduğu için fonksiyonu burada değil de her yerden erişebileceğim bir noktada tanımlıyorum. İçerisinde react hookları lazım olduğu için de bu ortak nokta en iyi custom hook olmuş oluyor.
+  //todo firms verileri bana birden fazla yerde lazım olduğu için fonksiyonu burada değil de her yerden erişebileceğim bir noktada tanımlıyorum. İçerisinde react hookları lazım olduğu için de bu ortak nokta en iyi custom hook olmuş oluyor.
   // const getFirms = async () => {
   //   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
