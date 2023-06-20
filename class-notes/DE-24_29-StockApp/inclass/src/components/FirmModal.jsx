@@ -33,6 +33,7 @@ export default function FirmModal({open, handleClose, info , setInfo}) {
 //   })
 
   const {postStockData} = useStockCall()
+  const {putStockData} = useStockCall()
 
   //todo tüm inputlarima tanimlamak istiyorum...
   const handleChange = (e)=>{
@@ -44,8 +45,12 @@ export default function FirmModal({open, handleClose, info , setInfo}) {
   }
 
   const handleSubmit=(e)=>{
-    e.preventDefault()
-    postStockData("firms",info)
+    e.preventDefault();
+    if(info.id){
+        putStockData("firms",info)
+    }else{
+        postStockData("firms", info)
+    }
     // setInfo({
     //   name: "",
     //   phone: "",    //todo set infoyu handleclose in icine ekledik. 
@@ -119,7 +124,7 @@ export default function FirmModal({open, handleClose, info , setInfo}) {
               required
             />
             <Button variant="contained" type="submit">
-              Submit Firm
+              {info.id ? "Update Firm" : "Submit Firm"}
             </Button>
           </Box>
         </Box>
