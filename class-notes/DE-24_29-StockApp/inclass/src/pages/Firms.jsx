@@ -66,12 +66,13 @@
 // import {useDispatch, useSelector} from "react-redux";
 // import { fetchFail, fetchStart, getSucces } from "../features/stockSlice";
 // import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useStockCall from "../hooks/useStockCall";
 import Typography from "@mui/material/Typography"
 import { Button, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import FirmCard from "../components/FirmCard";
+import FirmModal from "../components/FirmModal";
 
 const Firms = () => {
   // const dispatch = useDispatch();
@@ -79,6 +80,24 @@ const Firms = () => {
 
   const { getStockData } = useStockCall();
   const {firms} = useSelector(state=> state.stock)
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => {
+      setOpen(false);
+          setInfo({
+            name: "",
+            phone: "",
+            image: "",
+            address: "",
+          });
+    };
+
+      const [info, setInfo] = useState({
+        name: "",
+        phone: "",
+        image: "",
+        address: "",
+      });
 
   //todo firms verileri bana birden fazla yerde lazım olduğu için fonksiyonu burada değil de her yerden erişebileceğim bir noktada tanımlıyorum. İçerisinde react hookları lazım olduğu için de bu ortak nokta en iyi custom hook olmuş oluyor.
   // const getFirms = async () => {
@@ -108,7 +127,8 @@ const Firms = () => {
       <Typography variant="h4" color="error" mb={3}>
         Firms
       </Typography>
-      <Button variant="contained">New Firm</Button>
+      <Button variant="contained" onClick={handleOpen}>New Firm</Button>
+      <FirmModal open={open} handleClose={handleClose} info={info} setInfo={setInfo}/>
       <Grid
         container
         sx={{
@@ -120,7 +140,7 @@ const Firms = () => {
       >
         {firms?.map((firm) => (
           <Grid item key={firm.id}>
-            <FirmCard firm={firm} />
+            <FirmCard firm={firm} handleOpen={handleOpen} setInfo={setInfo} />
           </Grid>
         ))}
       </Grid>
