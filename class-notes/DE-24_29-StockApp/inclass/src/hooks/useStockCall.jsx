@@ -84,40 +84,40 @@ const useStockCall = () => {
     }
   };
 
-  const deleteStockData = async (url, id) => {
+  const deleteStockData = async (url, id, nameBrand) => {
     dispatch(fetchStart());
     try {
       await axiosWithToken.delete(`stock/${url}/${id}/`);
       getStockData(url);
-      toastSuccessNotify(`${url} successfuly deleted!`);
+      toastSuccessNotify(`${nameBrand} successfuly deleted!`);
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify(`${url} not successfuly deleted!`);
+      toastErrorNotify(`${nameBrand} not successfuly deleted!`);
     }
   };
 
-    const postStockData = async (url,info) => {
+    const postStockData = async (url,info,nameBrand) => {
       dispatch(fetchStart());
       try {
       await axiosWithToken.post(`stock/${url}/`,info);
     getStockData(url);
-    toastSuccessNotify(`${url} successfuly created!`);
+    toastSuccessNotify(`${nameBrand} successfuly created!`);
       } catch (error) {
         dispatch(fetchFail());
-        toastErrorNotify(`${url} not successfuly created!`);
+        toastErrorNotify(`${nameBrand} not successfuly created!`);
       }
     };
 
 
-    const putStockData = async (url,info) => {
+    const putStockData = async (url,info, nameBrand) => {
       dispatch(fetchStart());
       try {
       await axiosWithToken.put(`stock/${url}/${info.id}/`,info);
     getStockData(url);
-    toastSuccessNotify(`${url} successfuly updated!`);
+    toastSuccessNotify(`${nameBrand} successfuly updated!`);
       } catch (error) {
         dispatch(fetchFail());
-        toastErrorNotify(`${url} not successfuly update!`);
+        toastErrorNotify(`${nameBrand} not successfuly update!`);
       }
     };
 

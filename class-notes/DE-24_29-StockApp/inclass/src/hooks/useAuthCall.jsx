@@ -63,7 +63,7 @@ const useAuthCall = () => {
         userInfo
       );
       dispatch(registerSuccess(data));
-      toastSuccessNotify("Register performed");
+      toastSuccessNotify("Register performed"); 
       navigate("/stock");
     } catch (err) {
       dispatch(fetchFail());

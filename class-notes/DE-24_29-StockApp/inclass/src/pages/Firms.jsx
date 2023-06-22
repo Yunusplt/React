@@ -124,10 +124,10 @@ const Firms = () => {
 
   return (
     <div>
-      <Typography variant="h4" color="error" mb={3}>
+      <Typography variant="h4" color="error" mb={2}>
         Firms
       </Typography>
-      <Button variant="contained" onClick={handleOpen}>New Firm</Button>
+      <Button sx={{mb:2}} variant="contained" onClick={handleOpen}>New Firm</Button>
       <FirmModal open={open} handleClose={handleClose} info={info} setInfo={setInfo}/>
       <Grid
         container
