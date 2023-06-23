@@ -25,6 +25,12 @@ const stockSlice = createSlice({
       state.loading = false;
       state[payload.url] = payload.data; // state["firms"], state["brands"] anlamlarına gelerek tek bir reducerla tüm stateleri doldurabilmiş olduk.
     },
+    getProCatBrandSucces: (state, { payload }) => {
+      state.loading = false;
+      state.products = payload[0]; // state["firms"], state["brands"] anlamlarına gelerek tek bir reducerla tüm stateleri doldurabilmiş olduk.
+      state.brands = payload[1]; // state["firms"], state["brands"] anlamlarına gelerek tek bir reducerla tüm stateleri doldurabilmiş olduk.
+      state.categories = payload[2]; // state["firms"], state["brands"] anlamlarına gelerek tek bir reducerla tüm stateleri doldurabilmiş olduk.
+    },
 
     fetchFail: (state) => {
       state.loading = false;
@@ -33,7 +39,7 @@ const stockSlice = createSlice({
   },
 });
 
-export const { fetchStart, getSucces, fetchFail } = stockSlice.actions;
+export const { fetchStart, getSucces, fetchFail, getProCatBrandSucces } = stockSlice.actions;
 export default stockSlice.reducer;
 
 // async-thunk yerine manuel dispatclerle yapıyoruz. extra reducerlarla yapmadan da bu şekilde yapabiliyoruz. İki yönteminde avantajı ve dezavantajı var.
