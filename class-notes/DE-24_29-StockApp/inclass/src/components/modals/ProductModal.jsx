@@ -93,12 +93,12 @@
 
 
 import React from "react";
-import { flexColumn, modalStyle } from "../styles/globalStyle";
+import { flexColumn, modalStyle } from "../../styles/globalStyle";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
-import useStockCall from "../hooks/useStockCall";
+import useStockCall from "../../hooks/useStockCall";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";

@@ -72,32 +72,32 @@ import Typography from "@mui/material/Typography"
 import { Button, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
 import FirmCard from "../components/FirmCard";
-import FirmModal from "../components/FirmModal";
+import FirmModal from "../components/modals/FirmModal";
 
 const Firms = () => {
   // const dispatch = useDispatch();
   // const { token } = useSelector(state => state.auth);
 
   const { getStockData } = useStockCall();
-  const {firms} = useSelector(state=> state.stock)
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => {
-      setOpen(false);
-          setInfo({
-            name: "",
-            phone: "",
-            image: "",
-            address: "",
-          });
-    };
+  const { firms } = useSelector((state) => state.stock);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setInfo({
+      name: "",
+      phone: "",
+      image: "",
+      address: "",
+    });
+  };
 
-      const [info, setInfo] = useState({
-        name: "",
-        phone: "",
-        image: "",
-        address: "",
-      });
+  const [info, setInfo] = useState({
+    name: "",
+    phone: "",
+    image: "",
+    address: "",
+  });
 
   //todo firms verileri bana birden fazla yerde lazım olduğu için fonksiyonu burada değil de her yerden erişebileceğim bir noktada tanımlıyorum. İçerisinde react hookları lazım olduğu için de bu ortak nokta en iyi custom hook olmuş oluyor.
   // const getFirms = async () => {
@@ -120,15 +120,22 @@ const Firms = () => {
   useEffect(() => {
     // getFirms();
     getStockData("firms");
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <div>
       <Typography variant="h4" color="error" mb={2}>
         Firms
       </Typography>
-      <Button sx={{mb:2}} variant="contained" onClick={handleOpen}>New Firm</Button>
-      <FirmModal open={open} handleClose={handleClose} info={info} setInfo={setInfo}/>
+      <Button sx={{ mb: 2 }} variant="contained" onClick={handleOpen}>
+        New Firm
+      </Button>
+      <FirmModal
+        open={open}
+        handleClose={handleClose}
+        info={info}
+        setInfo={setInfo}
+      />
       <Grid
         container
         sx={{

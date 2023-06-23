@@ -1,6 +1,6 @@
 import {Button, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import BrandModal from "../components/BrandModal";
+import BrandModal from "../components/modals/BrandModal";
 import BrandCard from "../components/BrandCard";
 import useStockCall from "../hooks/useStockCall";
 import { useSelector } from "react-redux";
@@ -8,27 +8,27 @@ import { useSelector } from "react-redux";
 
 
 const Brands = () => {
-const {getStockData} = useStockCall()
-const { brands } = useSelector((state) => state.stock);
+  const { getStockData } = useStockCall();
+  const { brands } = useSelector((state) => state.stock);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => {setOpen(false);
-  setInfo({
+  const handleClose = () => {
+    setOpen(false);
+    setInfo({
+      name: "",
+      image: "",
+    });
+  };
+
+  const [info, setInfo] = useState({
     name: "",
     image: "",
   });
-  }
 
-  const [info,setInfo] = useState({
-    name:"",
-    image:""
-  })
-
-useEffect(() => {
-getStockData("brands")
-}, [])
-
+  useEffect(() => {
+    getStockData("brands");
+  }, []); // eslint-disable-line
 
   return (
     <div>
@@ -38,7 +38,12 @@ getStockData("brands")
       <Button variant="contained" onClick={handleOpen} sx={{ mb: 2 }}>
         new brand
       </Button>
-      <BrandModal open={open} handleClose={handleClose} info={info} setInfo={setInfo}/>
+      <BrandModal
+        open={open}
+        handleClose={handleClose}
+        info={info}
+        setInfo={setInfo}
+      />
       <Grid
         container
         sx={{
@@ -50,7 +55,11 @@ getStockData("brands")
       >
         {brands.map((brand) => (
           <Grid item key={brand.id}>
-            <BrandCard brand={brand} handleOpen={handleOpen} setInfo={setInfo}/>
+            <BrandCard
+              brand={brand}
+              handleOpen={handleOpen}
+              setInfo={setInfo}
+            />
           </Grid>
         ))}
       </Grid>

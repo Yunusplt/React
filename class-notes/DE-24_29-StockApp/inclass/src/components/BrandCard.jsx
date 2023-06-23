@@ -7,8 +7,9 @@ import Typography from "@mui/material/Typography";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 import useStockCall from "../hooks/useStockCall";
+import { btnStyle, flex } from "../styles/globalStyle";
 
-export default function MediaCard({brand, handleOpen, setInfo}) {
+export default function BrandCard({brand, handleOpen, setInfo}) {
     const {deleteStockData} = useStockCall()
   return (
     <Card
@@ -23,13 +24,6 @@ export default function MediaCard({brand, handleOpen, setInfo}) {
     >
       <CardContent>
         <Typography
-          sx={{
-            background: "green",
-            color:"white",
-            display: "inline-block",
-            paddingX: 2,
-            borderRadius: 2,
-          }}
           gutterBottom
           variant="h5"
           component="div"
@@ -45,19 +39,11 @@ export default function MediaCard({brand, handleOpen, setInfo}) {
         sx={{ height: 130, objectFit: "cover" }}
       />
       <CardActions
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 2,
-        }}
+        sx={flex}
       >
-        <EditIcon
-          sx={{ cursor: "pointer", "&:hover": { color: "red" } }}
-          onClick={() => handleOpen(setInfo(brand))}
-        />
+        <EditIcon sx={btnStyle} onClick={() => handleOpen(setInfo(brand))} />
         <DeleteOutlineIcon
-          sx={{ cursor: "pointer", "&:hover": { color: "red" } }}
+          sx={btnStyle}
           onClick={() => deleteStockData("brands", brand.id, brand.name)}
         />
       </CardActions>
