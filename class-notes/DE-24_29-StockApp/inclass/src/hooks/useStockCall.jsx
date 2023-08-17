@@ -50,6 +50,7 @@ const useStockCall = () => {
   //   };
   //! yukarıdaki gib her seferinde yazmak yerine daha modüler bir yapı kurarak tek bir fonksiyonla bir den fazla get işlemini gerçekleştirebiliyoruz
   const BASE_URL = process.env.REACT_APP_BASE_URL;
+  console.log(BASE_URL);
   // const getStockData = async (url) => {
   //   dispatch(fetchStart());
   //   try {
