@@ -1,25 +1,22 @@
-import moment from "moment"
-import React, {useEffect,useState} from 'react'
+import moment from "moment";
+import React, { useEffect, useState } from "react";
 
 const Clock = () => {
-    const [time,setTime] = useState(moment())
-    
-useEffect(()=>{
-    const times = setInterval(()=>{
-        setTime(moment());
-        console.log("merhaba");
-    },1000)
+  const [time, setTime] = useState(moment());
 
-    return()=>{
-      clearInterval(times)
+  useEffect(() => {
+    const times = setInterval(() => {
+      setTime(moment());
+      console.log("merhaba");
+    }, 1000);
+
+    return () => {
+      clearInterval(times);
       console.log("baska sayfayay gidildigi icin setInterval was stopped");
-    }
-
-
-
+    };
 
     //! sayfa ilk render edildiginde setInterval baslasin
-},[])
+  }, []);
 
   return (
     <div>
@@ -30,6 +27,6 @@ useEffect(()=>{
       {time.format("ss")}
     </div>
   );
-}
+};
 
-export default Clock
+export default Clock;

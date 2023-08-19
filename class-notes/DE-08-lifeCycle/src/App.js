@@ -12,18 +12,18 @@ function App() {
   const[goster, setGoster] = useState(true)
   return (
     <div className="container text-center">
-      {/* <LifeCycleMethods/> */}
+      <LifeCycleMethods/>
 
-      {/* <button className="btn btn-danger" onClick={() => setGoster(!goster)}>
+      <button className="btn btn-danger" onClick={() => setGoster(!goster)}>
         Göster
-      </button> */}
-      {/* {goster ? <OrnekUseEffect /> : ""} */}
-      {/* {goster && <OrnekUseEffect />} */}
+      </button>
+      {goster ? <OrnekUseEffect /> : ""}
+      {goster && <OrnekUseEffect />}
 
       {/* goster true iken OrnekUseEffect componenti görünsün, false durumunda hiçbirşey yapma */}
       {/* && iki parametrede doğruyken kullanılır, || soldaki doğruysa yada
       sağdaki doğruysa, hangisi true ise onu al */}
-      {/* {goster ? <Clock/> : ""} */}
+      {goster ? <Clock/> : ""}
       <People/>
     </div>
   );
