@@ -1,6 +1,6 @@
 // https://tr.legacy.reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook
 
-//! Birden fazla componentte aynı fonksiyona veya fonksiyonlara ihtiyacım varsa (fetch gibi) ve bu fonksiyonlar içerisinde hooklara ihtiyaç duyuyorsam dispatch,state gibi o zaman custom hook yazmak mantıklıdır.
+//! Birden fazla componentte aynı fonksiyona veya fonksiyonlara ihtiyacım varsa (fetch gibi) ve bu fonksiyonlar içerisinde hooklara ihtiyaç duyuyorsam dispatch,state gibi o zaman custom hook yazmak mantıklıdır. Cünkü Javascript functionlari icerisinde Reactta ait hooklar kullanilamaz. bu yüzden custom hook ihtiyaci hasil oluyor.
 //* custom hooklar "use" kelimesiyle başlar.
 //+ custom hooklar jsx return etmez.
 //* custom hookslar parametre alabilirler.
@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 const useAuthCall = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const register = async userInfo => {
+  const register = async (userInfo) => {
     dispatch(fetchStart());
     try {
       const { data } = await axios.post(

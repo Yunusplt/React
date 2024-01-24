@@ -8,3 +8,5 @@ const store = configureStore({
   devTools: process.env.NODE_ENV !== "production",
 });
 export default store;
+
+//* Buradaki stateleri yönetmek icin ReduxDevTools Plugin'i kullanilir
